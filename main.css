@@ -55,6 +55,35 @@ a:active {
     color: black;
 }
 
+div.menu {
+    border: 7px solid salmon;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}
 
+div.menu:hover {
+    background-color: #ffffff30;
+    box-shadow: 0 0 15px #00000030;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.menu {
+    width: 80%;
+    background-color: lightblue;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.menu a {
+    color: rgb(0, 0, 0);
+    line-height: 1.5;
+    margin: 10px;
+}
 
 
