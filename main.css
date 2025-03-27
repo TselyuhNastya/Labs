@@ -5,28 +5,38 @@ body {
     margin: 0px;
 }
 main {
-    background-color: lightgrey;
+    background-color: lightblue;
     color: black;
     font-family: Arial;
     margin: 0px;
 }
 footer {
-    background-color: lightcoral;
-    color: black;
+    color: rgb(255, 255, 255);
     font-family: Arial;
     margin: 0px;
+    background-color: rgb(4, 25, 68);
+    padding: 10px;
+    font-size: 15pt;
+    text-align: right;
+    position: fixed;
+    bottom:0;
+    right:0;
+    left:0;
 }
 header {
-    background-color: lightcoral;
-    color: black;
+    background-color: rgb(4, 25, 68);
+    color: rgb(255, 255, 255);
     font-family: Arial;
     margin: 0px;
+    font-size: 15pt;
+    padding: 10px;
 }
 
 a {
     text-decoration: none; 
     color: green;
     transition: 1s 2s;
+    font-style: italic;
 }
 
 a:link {
@@ -63,7 +73,7 @@ div.menu {
 }
 
 div.menu:hover {
-    background-color: #ffffff30;
+    background-color: lightblue;
     box-shadow: 0 0 15px #00000030;
 }
 
@@ -72,31 +82,6 @@ h1 {
     text-align: center;
 }
 
-.menu {
-    width: 80%;
-    background-color: lightblue;
-    padding: 7px;
-    border-radius: 5px;
-    margin: 10px;
-}
-
-.menu a {
-    color: rgb(0, 0, 0);
-    line-height: 1.5;
-    margin: 10px;
-}
-
-footer {
-    background-color: black;
-    color: lightgreen;
-    padding: 10px;
-    font-size: 16pt;
-    text-align: right;
-    position: fixed;
-    bottom:0;
-    right:0;
-    left:0;
-}
 
 main{
     margin: 10px 20px 45px;
