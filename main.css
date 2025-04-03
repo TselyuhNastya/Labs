@@ -4,12 +4,14 @@ body {
     font-family: Arial;
     margin: 0px;
 }
+
 main {
     background-color: lightblue;
     color: black;
     font-family: Arial;
-    margin: 0px;
+    margin: 10px 20px 45px;
 }
+
 footer {
     color: rgb(255, 255, 255);
     font-family: Arial;
@@ -23,6 +25,7 @@ footer {
     right:0;
     left:0;
 }
+
 header {
     background-color: rgb(4, 25, 68);
     color: rgb(255, 255, 255);
@@ -80,10 +83,5 @@ div.menu:hover {
 
 h1 {
     text-align: center;
-}
-
-
-main{
-    margin: 10px 20px 45px;
 }
 
