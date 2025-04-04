@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Комиксы</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <style>
+        .container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .cloud {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            font-style: italic;
+            border-radius: 50%;
+            border: 1px solid rgb(120, 108, 108);
+            padding: 10px 20px;
+            text-align:center;
+            display:flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0; 
+            transition: 0.3s; 
+        }
+
+        .cloud1 {
+            height: 10px;
+            width: 15px;
+            left: 365px;
+            top: 220px;
+        }
+
+        .cloud2 {
+            height: 30px;
+            width: 45px;
+            left: 400px;
+            top: 190px;
+        }
+
+        .cloud3 {
+            height: 50px;
+            width: 60px;
+            left: 450px;
+            top: 160px;
+        }
+
+        .cloud4 {
+            height: 70px;
+            width: 75px;
+            left: 500px;
+            top: 130px;
+        }
+        
+        .container:hover .cloud {
+            opacity: 1; /* Появление облачка при наведении */
+            pointer-events: auto; /* Включаем взаимодействие при видимости */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://avatars.mds.yandex.net/i?id=c51954c53c6e008f6192dcb63a9c3e40_l-4570314-images-thumbs&n=13" height="500">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4">Какой хороший день!</div>
+    </div>
+</body>
+</html>
