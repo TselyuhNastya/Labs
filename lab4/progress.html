@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Панель прогресса</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <style>
+        .container {
+            width: 360px;
+            margin: 100px auto;
+            padding: 15px;
+            border: 2px solid rgb(115, 27, 27);
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(255, 255, 255); 
+        }
+        .text {
+            color: rgb(115, 27, 27);
+            font-size: 25pt;
+            font-family: 'Times New Roman';
+        }
+        .progress {
+            width: 85%;
+            height: 10px;
+            margin: auto;
+            border: 2px solid #a63232;
+            border-radius: 3px;
+            margin-top: 20px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .progress-box {
+            height: 100%;
+            width: 0;
+            background: #6b0566;
+            transition: width 5s linear;
+        }
+        .button {
+            cursor: pointer;
+            transition: 0.5s;
+            padding: 10px 15px;
+            background-color: #a63232;
+            color: white;
+            border: 2px solid rgb(115, 27, 27);
+            border-radius: 3px;
+            box-shadow: 5px 5px 5px rgb(115, 27, 27, 0.5);
+            font-size: 15pt;
+            font-family: 'Times New Roman';
+        }
+        .button:hover {
+            box-shadow: 9px 9px 9px rgb(115, 27, 27);
+            color: #ffffff;
+        }
+        .button:active {
+            box-shadow: none;
+        }
+        .button:active + .progress .progress-box {
+            width: 100%;
+        }
+    </style>
+    </head>
+    <body>
+        <header style="padding: 5px;">
+            НГТУ, ФБ, Лабораторная работа 4
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="text">Степень прогресса</div>
+                    <div class="progress">
+                        <div class="progress-box"></div>
+                    </div>
+                    <button class="button">Нажмите и удерживайте</button>
+                </div>
+        </main>
+        
+        <footer>
+            &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+    </html>
