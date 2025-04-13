@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Анимация</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            font-family:'Times New Roman';
+        }
+
+        .cloud {
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 40px;
+            width: 80%;
+            height: 70px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            margin: 20px;
+            transition: 0.5s;
+            cursor: pointer;
+        } 
+        .tag:hover {
+            transform: scale(2.1);
+            text-shadow: 5px 5px 5px rgba(203, 13, 60, 0.5);
+            z-index: 10;
+            animation-play-state: paused;
+        }
+
+        .tag1 { 
+            color: #f80ae4; 
+            font-size: 20pt; 
+            animation: tag1 5s infinite alternate; 
+        }
+        @keyframes tag1 {
+            0% {
+                transform: rotate(-20deg) translate(0, 0);
+            }
+            50% {
+                transform: rotate(-5deg) translate(-10px, 10px);
+            }
+            100% {
+                transform: rotate(20deg) translate(-5px, -5px);
+            }
+        }
+
+        .tag2 { 
+            color: #106d27; 
+            font-size: 30pt;  
+            animation: tag2 3s infinite alternate; 
+        }
+        @keyframes tag2 {
+            0% {
+                transform: rotate(-10deg) translate(-60, -10);
+            }
+            50% {
+                transform: rotate(-30deg) translate(-10px, 10px);
+            }
+            100% {
+                transform: rotate(40deg) translate(60px, 20px);
+            }
+        }  
+
+        .tag3 { 
+            color: #038f78; 
+            font-size: 40pt; 
+            animation: tag3 4s infinite alternate; 
+        }
+        @keyframes tag3 {
+            0% {
+                transform: rotate(20deg) translate(0px, 0px);
+            }
+            50% {
+                transform: rotate(30deg) translate(20px, 30px);
+            }
+            100% {
+                transform: rotate(40deg) translate(40px, 60px);
+            }
+        } 
+
+        .tag4 { 
+            color: #e7503c; 
+            font-size: 30pt; 
+            animation: tag4 6s infinite alternate; 
+        }
+        @keyframes tag4 {
+            0% {
+                transform: rotate(10deg) translate(20px, 0px);
+            }
+            50% {
+                transform: rotate(15deg) translate(60px, 30px);
+            }
+            100% {
+                transform: rotate(20deg) translate(40px, 10px);
+            }
+        }  
+
+        .tag5 { 
+            color: #d0cb2a; 
+            font-size: 50pt;  
+            animation: tag5 6s infinite alternate; 
+        }
+        @keyframes tag5 {
+            0% {
+                transform: rotate(12deg) translate(80px, 20px);
+            }
+            50% {
+                transform: rotate(-25deg) translate(30px, 50px);
+            }
+            100% {
+                transform: rotate(20deg) translate(40px, 60px);
+            }
+        }  
+
+        .tag6 { 
+            color: #a823a8; 
+            font-size: 40pt; 
+            animation: tag6 5s infinite alternate; 
+        }
+        @keyframes tag6 {
+            0% {
+                transform: rotate(30deg) translate(20px, 30px);
+            }
+            50% {
+                transform: rotate(50deg) translate(40px, 50px);
+            }
+            100% {
+                transform: rotate(70deg) translate(60px, 70px);
+            }
+        }  
+
+        .tag7 { 
+            color: #14505f; 
+            font-size: 60pt;  
+            animation: tag7 6s infinite alternate; 
+        }
+        @keyframes tag7 {
+            0% {
+                transform: rotate(10deg) translate(60px, 20px);
+            }
+            50% {
+                transform: rotate(15deg) translate(30px, 12px);
+            }
+            100% {
+                transform: rotate(20deg) translate(10px, 2px);
+            }
+        }  
+
+        .tag8 { 
+            color: #065240; 
+            font-size: 20pt;  
+            animation: tag8 2s infinite alternate; 
+        }
+        @keyframes tag8 {
+            0% {
+                transform: rotate(18deg) translate(20px, 20px);
+            }
+            50% {
+                transform: rotate(30deg) translate(30px, 30px);
+            }
+            100% {
+                transform: rotate(62deg) translate(40px, 40px);
+            }
+        }  
+
+        .tag9 { 
+            color: #3b5e18; 
+            font-size: 100pt;  
+            animation: tag9 6s infinite alternate; 
+        }
+        @keyframes tag9 {
+            0% {
+                transform: rotate(2deg) translate(2px, 15px);
+            }
+            50% {
+                transform: rotate(20deg) translate(60px, 15px);
+            }
+            100% {
+                transform: rotate(22deg) translate(49px, 63px);
+            }
+        }  
+
+        .tag10 { 
+            color: #1fd328; 
+            font-size: 30pt;  
+            animation: tag10 6s infinite alternate; 
+        }
+        @keyframes tag10 {
+            0% {
+                transform: rotate(50deg) translate(10px, 30px);
+            }
+            50% {
+                transform: rotate(70deg) translate(60px, 15px);
+            }
+            100% {
+                transform: rotate(90deg) translate(18px, 20px);
+            }
+        }  
+
+        .tag11 { 
+            color: #fd0000; 
+            font-size: 35pt;  
+            animation: tag11 5s infinite alternate; 
+        }
+        @keyframes tag11 {
+            0% {
+                transform: rotate(18deg) translate(52px, 36px);
+            }
+            50% {
+                transform: rotate(20deg) translate(60px, 32px);
+            }
+            100% {
+                transform: rotate(22deg) translate(15px, 43px);
+            }
+        }  
+
+        .tag12 { 
+            color: #548044; 
+            font-size: 25pt;  
+            animation: tag12 5s infinite alternate; 
+        }
+        @keyframes tag12 {
+            0% {
+                transform: rotate(30deg) translate(32px, 36px);
+            }
+            50% {
+                transform: rotate(40deg) translate(60px, 42px);
+            }
+            100% {
+                transform: rotate(50deg) translate(30px, 30px);
+            }
+        }  
+
+        .tag13 { 
+            color: #965b68; 
+            font-size: 15pt;  
+            animation: tag13 5s infinite alternate; 
+        }
+        @keyframes tag13 {
+            0% {
+                transform: rotate(10deg) translate(20px, 21px);
+            }
+            50% {
+                transform: rotate(15deg) translate(30px, 60px);
+            }
+            100% {
+                transform: rotate(20deg) translate(30px, 50px);
+            }
+        }  
+
+        .tag14 { 
+            color: #623970; 
+            font-size: 36pt;  
+            animation: tag14 5s infinite alternate; 
+        }
+        @keyframes tag14 {
+            0% {
+                transform: rotate(60deg) translate(30px, 60px);
+            }
+            50% {
+                transform: rotate(30deg) translate(62px, 10px);
+            }
+            100% {
+                transform: rotate(50deg) translate(60px, 20px);
+            }
+        }
+
+        .tag15 { 
+            color: #9bce11; 
+            font-size: 40pt;  
+            animation: tag15 5s infinite alternate; 
+        }
+        @keyframes tag15 {
+            0% {
+                transform: rotate(12deg) translate(20px, 10px);
+            }
+            50% {
+                transform: rotate(20deg) translate(30px, 20px);
+            }
+            100% {
+                transform: rotate(30deg) translate(10px, 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="cloud">
+            <div class="tag tag1">Блины</div>
+            <div class="tag tag2">Конфеты</div>
+            <div class="tag tag3">Шоколад</div>
+            <div class="tag tag4">Оладушки</div>
+            <div class="tag tag5">Сырники</div>
+            <div class="tag tag6">Леденцы</div>
+            <div class="tag tag7">Зефир</div>
+            <div class="tag tag8">Печенье</div>
+            <div class="tag tag9">Пирог</div>
+            <div class="tag tag10">Йогурт</div>
+            <div class="tag tag11">Запеканка</div>
+            <div class="tag tag12">Мороженое</div>
+            <div class="tag tag13">Пончики</div>
+            <div class="tag tag14">Батончики</div>
+            <div class="tag tag15">Мармелад</div>
+        </div>
+    </main>
+
+    <footer>
+           &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
