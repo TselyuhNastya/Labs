@@ -10,7 +10,16 @@
     <link rel="icon" href="../Icon/favicon-32x32.png">
     <link rel="icon" href="../Icon/favicon.ico">
     <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
         .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 360px;
             margin: 100px auto;
             padding: 15px;
@@ -25,6 +34,7 @@
             font-family: 'Times New Roman';
         }
         .progress {
+            order: 1; 
             width: 85%;
             height: 10px;
             margin: auto;
@@ -33,7 +43,6 @@
             margin-top: 20px;
             padding: 10px;
             margin-bottom: 20px;
-            top: -27%;
         }
         .progress-box {
             height: 100%;
@@ -42,6 +51,7 @@
             transition: width 5s linear;
         }
         .button {
+            order: 2; 
             cursor: pointer;
             transition: 0.5s;
             padding: 10px 15px;
@@ -52,7 +62,6 @@
             box-shadow: 5px 5px 5px rgb(115, 27, 27, 0.5);
             font-size: 15pt;
             font-family: 'Times New Roman';
-            top: 30%;
         }
         .button:hover {
             box-shadow: 9px 9px 9px rgb(115, 27, 27);
