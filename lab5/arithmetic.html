@@ -20,6 +20,37 @@
             alert ('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
 
+        function showDiv() {
+            let inputA = document.getElementById('numberA')
+            let inputB = document.getElementById('numberB')
+
+            let a = parseInt (inputA.value);
+            let b = parseInt (inputB.value);
+            if(b == 0) {
+                alert('На ноль делить нельзя!');
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'red';
+                inputB.style.borderColor = 'red';
+                return;
+            }
+
+            if(isNaN(a)) {
+                alert ('Введите числовое значение в первом поле');
+                return;
+            }
+            if(isNaN(b)) {
+                alert ('Введите числовое значение во втором поле');
+                return;
+            }
+
+            inputB.style.color = '';
+            inputB.style.borderColor = '';
+
+            let result = a/b;
+            alert ( a + ' / ' + b + ' = ' + result);
+        }
+
         function showAuthor() {
             let author = "Автор страницы:\nЦелюх Анастасия Степановна"
             alert (author);
@@ -59,6 +90,7 @@
         <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
         <div class="messege" onclick="showSum()">Найти сумму</div>
         <div class="messege" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div class="messege" onclick="showDiv()">Найти отношение чисел</div>
     </main>
 
     <footer ondblclick="showPr()">
