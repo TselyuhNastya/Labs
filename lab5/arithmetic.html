@@ -60,6 +60,36 @@
             let privet = "Приветствую вас на моей странице!\nНадеюсь вам понравится!"
             alert (privet);
         }
+
+        function showST() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+
+            // Проверка на NaN
+            if (isNaN(a) && isNaN(b)) {
+                alert('Введите числовое значение в обоих полях');
+                return;
+            }
+            if (isNaN(a)) {
+                alert('Введите числовое значение в первом поле');
+                return;
+            }
+            if (isNaN(b)) {
+                alert('Введите числовое значение во втором поле');
+                return;
+            }
+
+            if (a === 0 && b === 0) {
+                alert('Оба поля не могут быть равны нулю одновременно!');
+                return;
+            }
+
+            let result = Math.pow(a, b);
+            alert(a + ' в степени ' + b + ' равно ' + result);
+        }
     </script>
     <style>
         .messege {
@@ -91,6 +121,8 @@
         <div class="messege" onclick="showSum()">Найти сумму</div>
         <div class="messege" onclick="showAuthor()">Узнать, кто автор страницы</div>
         <div class="messege" onclick="showDiv()">Найти отношение чисел</div>
+        <div class="messege" onclick="showST()">Возвести число в степени</div>
+
     </main>
 
     <footer ondblclick="showPr()">
