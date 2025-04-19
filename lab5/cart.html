@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <script>
+        function calculate() {
+            let appleCount = document.getElementById('apples');
+            let pearCount = document.getElementById('pears');
+            let orangeCount = document.getElementById('oranges');
+            let watermelonCount = document.getElementById('watermelons');
+
+            let a = parseInt(appleCount.value);
+            let p = parseInt(pearCount.value);
+            let o = parseInt(orangeCount.value);
+            let w = parseInt(watermelonCount.value);
+
+            let applePrice = 100;
+            let pearPrice = 80;
+            let orangePrice = 150;
+            let watermelonPrice = 300;
+            
+            if(isNaN(a)) {
+                alert('Если вам не нужен продукт, введите ноль');
+                appleCount.focus();
+                appleCount.select();
+                appleCount.style.color = 'red';
+                appleCount.style.borderColor = 'red';
+                return;
+            }
+            if(isNaN(p)) {
+                alert('Если вам не нужен продукт, введите ноль');
+                pearCount.focus();
+                pearCount.select();
+                pearCount.style.color = 'red';
+                pearCount.style.borderColor = 'red';
+                return;
+            }
+            if(isNaN(o)) {
+                alert('Если вам не нужен продукт, введите ноль');
+                orangeCount.focus();
+                orangeCount.select();
+                orangeCount.style.color = 'red';
+                orangeCount.style.borderColor = 'red';
+                return;
+            }
+            if(isNaN(w)) {
+                alert('Если вам не нужен продукт, введите ноль');
+                watermelonCount.focus();
+                watermelonCount.select();
+                watermelonCount.style.color = 'red';
+                watermelonCount.style.borderColor = 'red';
+                return;
+            }
+            if (a < 0) {
+                alert('Пожалуйста, введите неотрицательное число для яблок');
+                appleCount.focus();
+                appleCount.select();
+                appleCount.style.color = 'red';
+                appleCount.style.borderColor = 'red';
+                return;
+            }
+            if (p < 0) {
+                alert('Пожалуйста, введите неотрицательное число для груш');
+                pearCount.focus();
+                pearCount.select();
+                pearCount.style.color = 'red';
+                pearCount.style.borderColor = 'red';
+                return;
+            }
+            if (o < 0) {
+                alert('Пожалуйста, введите неотрицательное число для апельсинов');
+                orangeCount.focus();
+                orangeCount.select();
+                orangeCount.style.color = 'red';
+                orangeCount.style.borderColor = 'red';
+                return;
+            }
+            if (w < 0) {
+                alert('Пожалуйста, введите неотрицательное число для дынь');
+                watermelonCount.focus();
+                watermelonCount.select();
+                watermelonCount.style.color = 'red';
+                watermelonCount.style.borderColor = 'red';
+                return;
+            }
+            appleCount.style.color = '';
+            appleCount.style.borderColor = '';
+            pearCount.style.color = '';
+            pearCount.style.borderColor = '';
+            orangeCount.style.color = '';
+            orangeCount.style.borderColor = '';
+            watermelonCount.style.color = '';
+            watermelonCount.style.borderColor = '';
+
+            let total = (a * applePrice) +  (p * pearPrice) + (o * orangePrice) + (w * watermelonPrice); 
+        
+            document.getElementById("totalPrice").innerText = "Общая цена: " + total + " р.";
+        }
+
+        function clearAll() {
+            let appleCount = document.getElementById('apples');
+            let pearCount = document.getElementById('pears');
+            let orangeCount = document.getElementById('oranges');
+            let watermelonCount = document.getElementById('watermelons');
+
+            appleCount.value = '';
+            pearCount.value = '';
+            orangeCount.value = '';
+            watermelonCount.value = '';
+
+            appleCount.style.color = '';
+            appleCount.style.borderColor = '';
+            pearCount.style.color = '';
+            pearCount.style.borderColor = '';
+            orangeCount.style.color = '';
+            orangeCount.style.borderColor = '';
+            watermelonCount.style.color = '';
+            watermelonCount.style.borderColor = '';
+
+            document.getElementById("totalPrice").innerText = "Общая цена:";
+        }
+
+        
+    </script>
+    <style>
+        .korz {
+            border: 2px solid rgb(30, 83, 23);
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            background-color: rgba(218, 255, 216, 0.806);
+            margin: 50px auto;
+            width: 300px;
+            height: 410px;
+            text-align: center;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+        .okosh {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 1px solid rgb(47, 80, 51);
+        }
+
+        #calculateTotal {
+            cursor: pointer;
+            border: 1px solid rgb(255, 153, 0);
+            border-radius: 1px;
+            background-color: rgb(250, 241, 216);
+        }
+
+        #clearCart {
+            cursor: pointer;
+            border: 1px solid rgb(255, 153, 0);
+            border-radius: 1px;
+            background-color: rgb(250, 241, 216);
+        }
+
+    </style>
+</head>
+
+<body>
+    <header style="padding: 5px;">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="korz">
+            <h2>Корзина товаров</h2>
+            <label for="apples">Яблоки (100р/шт):</label><br>
+            <input type="number" class="okosh" id="apples" placeholder="Введите количество яблок" min="0" style="width: 200px; height: 30px;"><br>
+
+            <label for="pears">Груши (80р/шт):</label><br>
+            <input type="number" class="okosh" id="pears" placeholder="Введите количество груш" min="0" style="width: 200px; height: 30px;"><br>
+
+            <label for="oranges">Апельсины (150р/шт):</label><br>
+            <input type="number" class="okosh" id="oranges" placeholder="Введите количество апельсин" min="0" style="width: 200px; height: 30px;"><br>
+
+            <label for="watermelons">Дыни (300р/шт):</label><br>
+            <input type="number" class="okosh" id="watermelons" placeholder="Введите количество дынь" min="0" style="width: 200px; height: 30px;"><br>
+
+            <button type="button" id="calculateTotal" onclick="calculate()">Рассчитать</button>
+            <button type="button" id="clearCart" onclick="clearAll()">Очистить</button>
+
+            <div id="totalPrice" style="margin-top: 10px;">Общая цена:</div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
