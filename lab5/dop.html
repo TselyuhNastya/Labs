@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Дополнительное задание</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <script>
+        function applyFilter(event) {
+            let image = document.getElementById("Image");
+            let filterInfo = document.getElementById("filter");
+            let imageWidth = image.offsetWidth;
+            let mouseX = event.clientX - image.offsetLeft;
+            let filterValue = mouseX / imageWidth;
+
+            if (filterValue < 0) {
+                filterValue = 0;
+            }
+            if (filterValue > 1) {
+                filterValue = 1;
+            }
+
+            let filter = "hue-rotate(0deg)";
+            let filterText = "hue-rotate(0deg)";
+
+            if (event.ctrlKey) {
+                let blurAmount = filterValue * 20;
+                filter = "blur(" + blurAmount + "px)";
+                filterText = "blur(" + blurAmount + "px)";
+            } else if (event.altKey) {
+                let grayscaleAmount = filterValue * 100; 
+                filter = "grayscale(" + grayscaleAmount + "%)";
+                filterText = "grayscale(" + grayscaleAmount + "%)";
+            } else if (event.shiftKey) {
+                let sepiaAmount = filterValue * 100;
+                filter = "sepia(" + sepiaAmount + "%)";
+                filterText = "sepia(" + sepiaAmount + "%)";
+            } else {
+                let hueAmount = filterValue * 360;
+                filter = "hue-rotate(" + hueAmount + "deg)";
+                filterText = "hue-rotate(" + hueAmount + "deg)";
+            }
+
+            image.style.filter = filter;
+            filterInfo.innerText = "Фильтр: " + filterText;
+        }
+
+        function resetFilter() {
+            let image = document.getElementById("Image");
+            let filterInfo = document.getElementById("filter");
+            image.style.filter = "none";
+            filterInfo.innerText = "Фильтр: hue-rotate(0deg)";
+        }
+    </script>
+    <style>
+        img {
+            width: 500px;
+            height: 300px;
+            cursor: pointer;
+            transition: filter 0.3s;
+        }
+
+        #filter {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div id="help">
+            При наведении мыши будет работать фильтр hue-rotate.<br>
+            При нажатой клавише Ctrl - фильтр blur.<br>
+            При нажатой клавише Alt - фильтр grayscale.<br>
+            При нажатой клавише Shift - фильтр sepia.<br>
+            Чем левее мышь, тем слабее эффект. Чем правее, тем сильнее.<br>
+        </div>
+        <div>
+            <img src="beach.jpg" id="Image" onmousemove="applyFilter(event)" onmouseout="resetFilter()">
+            <div id="filter">Фильтр: hue-rotate(0deg)</div>
+        </div>
+    </main>
+
+
+    <footer>
+        &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
