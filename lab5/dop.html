@@ -17,13 +17,6 @@
             let mouseX = event.clientX - image.offsetLeft;
             let filterValue = mouseX / imageWidth;
 
-            if (filterValue < 0) {
-                filterValue = 0;
-            }
-            if (filterValue > 1) {
-                filterValue = 1;
-            }
-
             let filter = "hue-rotate(0deg)";
             let filterText = "hue-rotate(0deg)";
 
