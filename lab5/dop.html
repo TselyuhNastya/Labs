@@ -21,7 +21,7 @@
             let filterText = "hue-rotate(0deg)";
 
             if (event.ctrlKey) {
-                let blurAmount = filterValue * 20;
+                let blurAmount = filterValue * 10;
                 filter = "blur(" + blurAmount + "px)";
                 filterText = "blur(" + blurAmount + "px)";
             } else if (event.altKey) {
@@ -33,7 +33,7 @@
                 filter = "sepia(" + sepiaAmount + "%)";
                 filterText = "sepia(" + sepiaAmount + "%)";
             } else {
-                let hueAmount = filterValue * 360;
+                let hueAmount = filterValue * 100;
                 filter = "hue-rotate(" + hueAmount + "deg)";
                 filterText = "hue-rotate(" + hueAmount + "deg)";
             }
