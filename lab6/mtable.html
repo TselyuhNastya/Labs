@@ -3,31 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Целюх Анастасия Степановна. Лабораторная 6</title>
+    <title>Целюх Анастасия Степановна. Таблица умножения </title>
     <link rel="stylesheet" href="../main.css">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../Icon/favicon-16x16.png">
     <link rel="icon" href="../Icon/favicon-32x32.png">
     <link rel="icon" href="../Icon/favicon.ico">
+</head>
     <script>
         function showMultipleTable() {
+            const multiplyOn = parseInt(document.getElementById('multiplyBy').value);
+            const start = parseInt(document.getElementById('start').value);
+            const end = parseInt(document.getElementById('end').value);
+
             let tbl = document.getElementById('mtable');
             tbl.innerHTML = '<h1>Таблица умножения</h1>';
-            for(i = 1; i <= 10; i++) {
-                let s = `<div>${i} * 7 = ${i*7}</div>`;
+
+            if (isNaN(multiplyOn) || isNaN(start) || isNaN(end)) {
+                tbl.innerHTML = 'Пожалуйста, введите все числа.';
+                return;
+            }
+
+            if (start > end) {
+                tbl.innerHTML = 'Начальное значение больше конечного. Пожалуйста, исправьте.';
+                return;
+            }
+
+            for(let i = start; i <= end; i++) {
+                let s = `<div class="mtable-item">${i} * ${multiplyOn} = ${i * multiplyOn}</div>`;
                 tbl.innerHTML += s;
             }
         }
-        showMultipleTable();
     </script>
+    <style>
+        #mtable {
+            border: 1px solid rgb(235, 166, 204);
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgb(235, 166, 204);
+            margin: 20px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .mtable-item {
+            padding: 10px;
+            border-bottom: 1px solid rgb(235, 166, 204);
+        }
+        
+        .inp label {
+            display: inline-block;
+            width: 120px;
+            text-align: left;
+        }
+
+        .inp input[type="number"] {
+            padding: 8px;
+            border: 2px solid rgb(235, 166, 204);
+            width: auto;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #b1076a;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body onload="showMultipleTable()">
     <header>
         НГТУ, ФБ, Лабораторная работа 6
     </header>
-
+    
     <main>
-       <div id="mtable"></div>
+        <div id="mtable"></div>
+     
+        <div class="inp">
+            <label for="multiply">Умножить на:</label>
+            <input type="number" id="multiplyBy">
+        </div>
+
+        <div class="inp">
+            <label for="start">Начать с:</label>
+            <input type="number" id="start">
+        </div>
+
+        <div class="inp">
+            <label for="end">Закончить на:</label>
+            <input type="number" id="end">
+        </div>
+
+        <div class="table">
+            <button onclick="showMultipleTable()">Таблица</button>
+        </div>
     </main>
 
     <footer>
