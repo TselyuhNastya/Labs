@@ -35,7 +35,84 @@
         }
 
         let timeUpdater;
+
+        function startUpdateTime() {
+            showDate();
+            if (!timeUpdater) {
+                timeUpdater = setInterval(showDate, 1000);
+            }
+            document.getElementById('update-time-btn').disabled = true;
+            document.getElementById('stop-update-time-btn').disabled = false;
+        }
+
+        function stopUpdateTime() {
+            if (timeUpdater) {
+                clearInterval(timeUpdater);
+                timeUpdater = null;
+            }
+            document.getElementById('update-time-btn').disabled = false;
+            document.getElementById('stop-update-time-btn').disabled = true;
+        }
+
+        let timerNum;
+
+        function changeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            header.style.color = rgb;
+        }
+
+        function startChangeColors() {
+            changeColors();
+            timerNum = setInterval(changeColors, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+        }
+
+        function stopChangeColors() {
+            clearInterval(timerNum);
+            document.getElementById('stop-btn').disabled = true; 
+            document.getElementById('start-btn').disabled = false;
+        }
+
     </script>
+    <style>
+        h1 {
+            text-align: left;
+            color: #000000;
+        }
+
+        header {
+            transition: color 1s;
+        }
+
+        .date-format {
+            background-color: #ffe9e9;
+            padding: 15px;
+            margin-bottom: 15px;
+            width: 50%;
+            text-align: left;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .locale-name {
+            color: #a70f0f;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            color: rgb(0, 0, 0);
+            border: 2px solid #a70f0f;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border: 2px solid #df8a8a;
+        }
+    </style>
 </head>
 <body onload="showDate()">
     <header>
@@ -43,7 +120,17 @@
     </header>
 
     <main>
-       <div id="current-date"></div>
+        <h1>Дата и время для разных локалей</h1>
+        <div id="current-date"></div>
+        <div class="buttons-group">
+            <button onclick="startUpdateTime()" id="update-time-btn">Обновлять время</button>
+            <button onclick="stopUpdateTime()" disabled id="stop-update-time-btn">Остановить обновление времени</button>
+        </div>
+
+        <div class="buttons-group">
+            <button onclick="startChangeColors()" id="start-btn">Старт</button>
+            <button onclick="stopChangeColors()" disabled id="stop-btn">Стоп</button>
+        </div>
     </main>
 
     <footer>
