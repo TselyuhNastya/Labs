@@ -18,7 +18,7 @@
             const response = await fetch(apiDaily);
             const data = await response.json();
             if (data.Valute && data.Valute.CHF) {
-                currentRate = data.Valute.CHF.Value;1000
+                currentRate = data.Valute.CHF.Value;
             } else {
                 // Если по каким-то причинам нет, выставим фиксированный курс или ошибку
                 currentRate = null;
@@ -103,14 +103,12 @@
                         label: 'Курс CHF',
                         data: data.rates,
                         backgroundColor: 'rgba(0,0,255,0.2)',
-                        borderColor: 'rgba(0,0,255,1)',
+                        borderColor: 'rgba(0,0,255)',
                         borderWidth: 2,
                         fill: true,
-                        tension: 0.2
                     }]
                 },
                 options: {
-                    responsive: true,
                     onClick: (evt, elements) => {
                         if (elements.length > 0) {
                             const index = elements[0].index;
@@ -118,9 +116,6 @@
                                 `Дата: ${data.dates[index]}, Курс: ${data.rates[index]}`;
                         }
                     },
-                    scales: {
-                        y: { beginAtZero: false }
-                    }
                 }
             });
         }
@@ -170,7 +165,7 @@
         <hr>
     
         <div class="converter">
-            <label>Рубли: <input type="number" id="amountRub" value="1000" /></label>
+            <label>Рубли: <input type="number" id="amountRub" /></label>
             <button onclick="convertToCurrency()">→ Швейцарский франк</button>
             <br><br>
             <label>Швейцарский франк: <input type="number" id="amountCurrency" /></label>
