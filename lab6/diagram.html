@@ -14,7 +14,6 @@
             let data = [36, 86, 55, 28, 92, 60, 41, 17, 9, 43];
             let colors = ['#6A5ACD', '#FF6347', '#FFA500', '#32CD32', '#FFD700', '#1E90FF', '#FF69B4', '#BA55D3', '#20B2AA', '#FF4500'];
             let bars = document.getElementsByClassName('bar');
-            const diagWidth = document.getElementById('diag').clientWidth;
             const maxData = Math.max(...data);
             const k = document.getElementById('diag').clientHeight / maxData * 0.9; 
             for(let i = 0; i < data.length; i++) {
