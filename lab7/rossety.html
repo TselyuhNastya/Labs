@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх Анастасия Степановна. Котировки акций компании "Россети Центр и Приволжье"</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../icon/favicon-32x32.png">
+    <link rel="icon" href="../icon/favicon.ico">
+    <script>
+        const stockDates = [
+        "07.05.2025", "08.05.2025", "12.05.2025", "13.05.2025", "14.05.2025",
+        "15.05.2025", "16.05.2025", "19.05.2025", "20.05.2025", "21.05.2025"
+        ];
+            
+        const stockPrices = [
+        0.3833, 0.3846, 0.39, 0.3799, 0.3809,
+        0.384, 0.3844, 0.3888, 0.3844, 0.3806
+        ];
+
+        function showStockPrices() {
+            let table = document.getElementById('stock-table');
+            
+            // Очищаем таблицу перед заполнением
+            while (table.rows.length > 0) {
+                table.deleteRow(0);
+            }
+            
+            // Создаем заголовок таблицы
+            let headerRow = table.insertRow();
+            let headers = ["Дата", "Цена, руб", "Изменение"];
+            for (let i = 0; i < headers.length; i++) {
+                let th = document.createElement('th');
+                th.innerText = headers[i];
+                headerRow.appendChild(th);
+            }
+            
+            // Заполняем таблицу данными
+            for (let i = 0; i < stockPrices.length; i++) {
+                let row = table.insertRow();
+                
+                // Дата
+                let dateCell = row.insertCell();
+                dateCell.innerText = stockDates[i];
+                
+                // Цена
+                let priceCell = row.insertCell();
+                priceCell.innerText = stockPrices[i].toFixed(2);
+                
+                // Изменение
+                let changeCell = row.insertCell();
+                if (i === 0) {
+                    changeCell.innerText = "—";
+                } else {
+                    let change = stockPrices[i] - stockPrices[i-1];
+                    changeCell.innerText = change.toFixed(2);
+        
+                    if (change > 0) {
+                        changeCell.style.color = 'green';
+                    } else if (change < 0) {
+                        changeCell.style.color = 'red';
+                    }
+                }
+            }
+            
+            // Рассчитываем статистику
+            let sum = 0;
+            let min = stockPrices[0];
+            let max = stockPrices[0];
+            
+            for (let i = 0; i < stockPrices.length; i++) {
+                sum += stockPrices[i];
+                if (stockPrices[i] < min) min = stockPrices[i];
+                if (stockPrices[i] > max) max = stockPrices[i];
+            }
+            
+            let average = sum / stockPrices.length;
+            
+            // Выводим статистику
+            let statsDiv = document.getElementById('stock-stats');
+            statsDiv.innerHTML = `
+                <p>Среднее значение: ${average.toFixed(2)} руб</p>
+                <p>Минимальное значение: ${min.toFixed(2)} руб</p>
+                <p>Максимальное значение: ${max.toFixed(2)} руб</p>
+            `;
+            
+
+            let button = document.querySelector('button');
+            button.style.display = 'none';
+        }
+    </script>
+    <style>
+        button {
+            border: 1px solid rgb(0, 0, 0);
+            background-color: #dbf1db;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            height: 50px;
+            width: 220px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-size: 12pt;
+            line-height: 1.5;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            background-color: white;
+            overflow: hidden;
+        }
+       
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 12pt;
+        }
+
+        th {
+            background-color: #dbf1db;
+        }
+  
+        #stock-stats {
+            font-size: 12pt;
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 5px;">
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <h2>Котировки акций компании "Россети Центр и Приволжье"</h2>
+        <button onclick="showStockPrices()">Показать котировки акций</button>
+        <table border="1" id="stock-table"></table>
+        <div id="stock-stats"></div>
+    </main>
+    
+    <footer>
+        &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
