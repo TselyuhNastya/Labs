@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх АнасДтасия Степановна. Курс доллара</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <script src="dollar-data.js"></script>
+    <script>
+        function showExchange() {
+            let table = document.getElementById('dollar-table');
+            for(let i = 0; i < exchange.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerText = exchange[i];
+                tr.appendChild(td);
+                table.appendChild(tr);
+            }
+
+            let sum = 0;
+            for(let i = 0; i < exchange.length; i++) {
+                sum += exchange[i];
+            }
+            let average = sum / exchange.length;
+            average = average.toFixed(2);
+
+            let detail = document.getElementById('detail');
+            detail.innerText = 'Среднее значение: ' + average;
+
+            let button = document.querySelector('button');
+            button.style.display = 'none';
+        }
+    </script>
+    <style>
+        button {
+            border: 1px solid black;
+            background-color: rgb(142, 190, 142);
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            height: 80px;
+            width: 180px;
+            cursor: pointer;
+            font-size: 14pt;
+        }
+        button:hover {
+            background-color: rgb(214, 235, 211);
+        }
+        table {
+            border-collapse: collapse;
+            width: 250px;
+            background-color: rgb(214, 228, 219);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        table, th, td {
+            border: 1px solid rgb(8, 73, 17);
+        }
+        td {
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 14pt;
+            color: #000000;
+        }
+        #detail {
+            margin-top: 20px;
+            font-size: 14pt;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showExchange()">Курс доллара</button>
+        <table border="1" id="dollar-table"></table>
+        <div id="detail"></div>
+    </main>
+
+    <footer>
+        &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
