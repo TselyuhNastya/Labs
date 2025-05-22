@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Целюх АнасДтасия Степановна. Прогноз погоды</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../Icon/favicon-16x16.png">
+    <link rel="icon" href="../Icon/favicon-32x32.png">
+    <link rel="icon" href="../Icon/favicon.ico">
+    <script>
+        function getWeatherForecast() {
+            const url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const temperatures = data.hourly.temperature_2m;
+                const times = data.hourly.time;
+
+                const index8am = times.findIndex(time => time.includes("08:00"));
+                const index12pm = times.findIndex(time => time.includes("12:00"));
+                const index8pm = times.findIndex(time => time.includes("20:00"));
+
+                const message = `
+                    <div class="weather-info">
+                        <h2>Прогноз погоды в Новосибирске на сегодня:</h2>
+                        <p>Температура в 8:00: <i>${temperatures[index8am].toFixed(1)} °C</i></p>
+                        <p>Температура в 12:00: <i>${temperatures[index12pm].toFixed(1)} °C</i></p>
+                        <p>Температура в 20:00: <i>${temperatures[index8pm].toFixed(1)} °C</i></p>
+                    </div>
+                `;
+                document.getElementById('result').innerHTML = message;
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+        }
+    </script>
+        <style>
+        .weather-info {
+            border: 1px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            width: 390px;
+        }
+        h2 {
+            font-size: 12pt;
+        }
+
+        p {
+            font-size: 12pt;
+        }
+
+        button {
+            border: 1px solid rgb(0, 0, 0);
+            background-color: #dbf1db;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            height: 50px;
+            width: 410px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 12pt;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="getWeatherForecast()">Получить прогноз погоды</button>
+        <div id="result"></div>
+    </main>
+
+    <footer>
+        &copy; Целюх Анастасия, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
+</html>
