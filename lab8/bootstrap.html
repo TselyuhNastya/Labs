@@ -37,7 +37,9 @@
                     <h2 class="card-title">Цветы</h2>
                     <ul class="list-group">
                         <li v-for="(flower, id) in flowers" class="list-group-item">
-                            {{ flower }} <button @click="edit(id, flower)">?</button>
+                            {{ flower }} <button @click="edit(id, flower)" class="btn btn-primary"  v-if="flower !== null">
+                            <i class="bi bi-pen"></i>
+                        </button>
                         </li>
                     </ul>
                 </div>
