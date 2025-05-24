@@ -25,7 +25,7 @@
                 const formattedDate = date.toLocaleDateString('ru-RU', {
                     day: 'numeric', month: 'long', year: 'numeric'
                 });
-                document.getElementById('forecastDate').innerHTML = `<strong>Дата:</strong> ${formattedDate}`;
+                document.getElementById('forecastDate').innerHTML = `${formattedDate}`;
                 updateChart(data);
                 
             } catch (error) {
@@ -59,6 +59,18 @@
                         }
                     ]
                 },
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: true,
+                    scales: {
+                        x: {
+                            stacked: false
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
             });
         }
 
@@ -66,8 +78,7 @@
     </script>
     <style>
         #weatherChart {
-            width: 100%;
-            max-width: 700px;
+            width: 70vh;
             height: 400px;
             margin: 20px auto;
             display: block;
@@ -77,17 +88,6 @@
             width: 100%;
         }
         
-        button {
-            border: 1px solid rgb(0, 0, 0);
-            background-color: #ffffff;
-            border-radius: 5px;
-            color: rgb(0, 0, 0);
-            height: 50px;
-            width: 220px;
-            cursor: pointer;
-            font-size: 12pt;
-        }
-
         .weather-info {
             font-size: 12pt;
             color: black;
@@ -108,12 +108,11 @@
     <main>
         <h1>Прогноз погоды в Новосибирске</h1>
         <div class="container">
-            <button onclick="loadWeather()">Обновить</button>
             
             <div class="weather-info">
                 <p>Температура: <strong><span id="temp"></span>°C</strong></p>
                 <p>Влажность: <strong><span id="humidity"></span>%</strong></p>
-                <p><strong><span id="forecastDate"></span></strong></p>
+                <p>Дата: <strong><span id="forecastDate"></span></strong></p>
                 <p><i>Прогноз погоды на день:</i></p>
             </div>
 
