@@ -29,7 +29,16 @@
             <div>Имя: {{user.name}}</div>
             <div>Возраст: {{user.age}}</div>
             <div>Телефон: {{user.tel}}</div>
-             <hr>
+            <hr>
+
+           
+            <h2>Цветы</h2>
+            <ul class="list-group">
+                <li v-for="(flower, id) in flowers" class="list-group-item">
+                    {{ flower }} <button @click="edit(id, flower)">?</button>
+                </li>
+            </ul>
+            <hr>
 
             <h2>Цветы</h2>
             <table class="table table-danger">
@@ -41,7 +50,6 @@
                 </thead>
                 <tr v-for="(flower, id) in flowers">
                     <td>
-                        <span v-if="flower === null">Загружается...</span>
                         <span v-else>{{ flower }}</span>
                     </td>
                     <td>
