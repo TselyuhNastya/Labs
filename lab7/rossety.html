@@ -22,12 +22,7 @@
 
         function showStockPrices() {
             let table = document.getElementById('stock-table');
-            
-            // Очищаем таблицу перед заполнением
-            while (table.rows.length > 0) {
-                table.deleteRow(0);
-            }
-            
+
             // Создаем заголовок таблицы
             let headerRow = table.insertRow();
             let headers = ["Дата", "Цена, руб", "Изменение"];
@@ -47,15 +42,15 @@
                 
                 // Цена
                 let priceCell = row.insertCell();
-                priceCell.innerText = stockPrices[i].toFixed(2);
+                priceCell.innerText = stockPrices[i];
                 
                 // Изменение
                 let changeCell = row.insertCell();
-                if (i === 0) {
+                if (i == 0) {
                     changeCell.innerText = "—";
                 } else {
                     let change = stockPrices[i] - stockPrices[i-1];
-                    changeCell.innerText = change.toFixed(2);
+                    changeCell.innerText = change.toFixed(4);
         
                     if (change > 0) {
                         changeCell.style.color = 'green';
@@ -81,11 +76,10 @@
             // Выводим статистику
             let statsDiv = document.getElementById('stock-stats');
             statsDiv.innerHTML = `
-                <p>Среднее значение: ${average.toFixed(2)} руб</p>
-                <p>Минимальное значение: ${min.toFixed(2)} руб</p>
-                <p>Максимальное значение: ${max.toFixed(2)} руб</p>
+                <p>Среднее значение: ${average.toFixed(4)} руб</p>
+                <p>Минимальное значение: ${min.toFixed(4)} руб</p>
+                <p>Максимальное значение: ${max.toFixed(4)} руб</p>
             `;
-            
 
             let button = document.querySelector('button');
             button.style.display = 'none';
