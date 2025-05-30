@@ -23,7 +23,6 @@
         function showStockPrices() {
             let table = document.getElementById('stock-table');
 
-            // Создаем заголовок таблицы
             let headerRow = table.insertRow();
             let headers = ["Дата", "Цена, руб", "Изменение"];
             for (let i = 0; i < headers.length; i++) {
@@ -32,19 +31,15 @@
                 headerRow.appendChild(th);
             }
             
-            // Заполняем таблицу данными
             for (let i = 0; i < stockPrices.length; i++) {
                 let row = table.insertRow();
                 
-                // Дата
                 let dateCell = row.insertCell();
                 dateCell.innerText = stockDates[i];
                 
-                // Цена
                 let priceCell = row.insertCell();
                 priceCell.innerText = stockPrices[i];
                 
-                // Изменение
                 let changeCell = row.insertCell();
                 if (i == 0) {
                     changeCell.innerText = "—";
@@ -60,7 +55,6 @@
                 }
             }
             
-            // Рассчитываем статистику
             let sum = 0;
             let min = stockPrices[0];
             let max = stockPrices[0];
@@ -73,7 +67,6 @@
             
             let average = sum / stockPrices.length;
             
-            // Выводим статистику
             let statsDiv = document.getElementById('stock-stats');
             statsDiv.innerHTML = `
                 <p>Среднее значение: ${average.toFixed(4)} руб</p>
